@@ -150,6 +150,21 @@
 
     {# pour que le HTML ne soit échappé #}
     {{ paragraphe|raw }}
+
+    {#
+    inclusion d'un autre fichier :
+    chemin à partir de la racine du répertoire templates
+    #}
+    {% include 'twig/inclus.html.twig' %}
+
+    {# le fichier inclus n'a pas accès aux variables venant de ce fichier #}
+    {% include 'twig/inclus.html.twig' only %}
+
+    {# le fichier inclus a accès a un variable foo qui vaut 'BAR' #}
+    {% include 'twig/inclus.html.twig' with {foo: 'BAR'} %}
+
+    {# le fichier inclus n'a accès qu'à la variable foo #}
+    {% include 'twig/inclus.html.twig' with {foo: 'BAR'} only %}
 {% endblock %}
 
 {#
